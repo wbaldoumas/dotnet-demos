@@ -2,8 +2,6 @@
 // ReSharper disable UseNegatedPatternInIsExpression
 // ReSharper disable RedundantDiscardDesignation
 
-using System;
-
 /*
  * C# 9.0 introduces various pattern matching enhancements. But first, what is pattern matching?
  *
@@ -19,7 +17,7 @@ using System;
  * Note: most of the examples below are shamelessly cribbed from https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns
  */
 
-
+using System;
 
 /*
  * Type Pattern Matching
