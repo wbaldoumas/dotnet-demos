@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Examples\" />
+    <None Remove="Examples\PersonRecord.cs~RF1bf5c3b.TMP" />
   </ItemGroup>
 
 </Project>
