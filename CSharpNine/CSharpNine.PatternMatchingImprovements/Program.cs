@@ -32,7 +32,7 @@ if (greeting is string message)
     Console.WriteLine(message.ToLower());  // output: hello, world!
 }
 
-// we can also apply type pattern matching to switch expressions..
+// we can also apply type pattern matching to switch expressions:
 static void PrintStringOrDoubleWithVariable(object foo)
 {
     var message = foo switch
@@ -40,7 +40,7 @@ static void PrintStringOrDoubleWithVariable(object foo)
         string bar => $"{nameof(foo)} is a string and its value is {bar.ToLower()}.",
         double baz => $"{nameof(foo)} is a number and its square root is {Math.Sqrt(baz)}.",
         null => throw new ArgumentNullException(nameof(foo)),
-        _ => throw new ArgumentException("Unknown type of foo", nameof(foo)),
+        _ => throw new ArgumentException("Unknown type", nameof(foo)),
     };
 
     Console.WriteLine(message);
@@ -60,7 +60,7 @@ static void PrintStringOrDoubleWithDiscard(object foo)
     Console.WriteLine(message);
 }
 
-// starting in C# 9.0, the discard is now optional
+// starting in C# 9.0, the discard is now optional:
 static void PrintStringOrDoubleWithoutDiscard(object foo)
 {
     var message = foo switch
@@ -99,7 +99,7 @@ static decimal GetGroupTicketPrice(int visitorCount) => visitorCount switch
 
 var _ = GetGroupTicketPrice(3);
 
-// we've also used constant pattern matching to check if something is null...
+// we've also used constant pattern matching to check if something is null:
 static void YellIfNull(int? maybe)
 {
     if (maybe is null)
@@ -108,7 +108,7 @@ static void YellIfNull(int? maybe)
     }
 }
 
-// starting in C# 9.0 you can use the "not" negation with constant pattern matching...
+// starting in C# 9.0 you can use the "not" negation with constant pattern matching:
 static void YellIfNotNull(int? maybe)
 {
     if (!(maybe is null))
@@ -118,7 +118,7 @@ static void YellIfNotNull(int? maybe)
 
     if (maybe != null)
     {
-        // this is also not pretty and breaks if anyone implements/overrides the != operator on the given type.
+        // this is also not pretty and can break if anyone overrides the != operator on the given type.
     }
 
     if (maybe is not null)
@@ -172,7 +172,7 @@ Console.WriteLine(GetCalendarSeason(new DateTime(2021, 2, 17)));  // output: win
 
 
 /*
- * Logical pattern matching - Beginning with C# 9.0, you use the not, and, and or pattern combinators to create the
+ * Logical pattern matching - Beginning with C# 9.0, you use the "not", "and", and "or" pattern combinators to create the
  * following logical patterns:
  *
  * - Negation "not" pattern that matches an expression when the negated pattern doesn't match the expression.
@@ -216,7 +216,7 @@ Console.WriteLine(GetDisjunctiveCalendarSeason(new DateTime(2021, 5, 11)));  // 
 
 // You can repeatedly use the pattern combinators in a pattern The "and" pattern combinator has higher precedence than "or".
 
-// To explicitly specify the precedence, use parentheses...
+// To explicitly specify the precedence, use parentheses:
 static bool IsLetter(char c) => c is (>= 'a' and <= 'z') or (>= 'A' and <= 'Z');
 
 const char testChar = '*';
@@ -224,7 +224,7 @@ const char testChar = '*';
 Console.WriteLine($"{testChar} is letter status: {IsLetter(testChar)}");
 
 
-// you can also use parentheses like this to indicate groupings
+// you can also use parentheses like this to indicate groupings:
 static void Foo(object input)
 {
     if (input is not (float or double))

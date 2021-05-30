@@ -4,9 +4,22 @@ namespace CSharpNine.Records.Examples
 {
     public class ImmutablePerson : IEquatable<ImmutablePerson>
     {
-        public string FirstName { get; init; }
+        public string FirstName { get; }
+        public string LastName { get; }
 
-        public string LastName { get; init; }
+        public ImmutablePerson(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public void Deconstruct(out string firstName, out string lastName)
+        {
+            firstName = FirstName;
+            lastName = LastName;
+        }
+
+        public override string ToString() => $"{nameof(ImmutablePerson)} {{ {nameof(FirstName)} = {FirstName}, {nameof(LastName)} = {LastName} }}";
 
         public bool Equals(ImmutablePerson other)
         {
