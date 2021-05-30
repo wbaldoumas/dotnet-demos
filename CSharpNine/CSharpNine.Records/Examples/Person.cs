@@ -1,4 +1,4 @@
 ﻿namespace CSharpNine.Records.Examples
 {
-    public record PersonRecord(string FirstName, string LastName);
+    public record Person(string FirstName, string LastName);
 }

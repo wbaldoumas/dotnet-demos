@@ -5,8 +5,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Examples\PersonRecord.cs~RF1bf5c3b.TMP" />
-  </ItemGroup>
-
 </Project>
